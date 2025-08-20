@@ -1,39 +1,55 @@
 class Animal:
     def __init__(self, nombre, peso, propietario, fecha_cumpleaños, fecha_ultima_vacuna):
-        self.__nombre = nombre
-        self.__peso = peso
-        self.__propietario = propietario
-        self.__fecha_cumpleaños = fecha_cumpleaños
-        self.__fecha_ultima_vacuna = fecha_ultima_vacuna
+        self._nombre = nombre
+        self._peso = peso
+        self._propietario = propietario
+        self._fecha_cumpleaños = fecha_cumpleaños
+        self._fecha_ultima_vacuna = fecha_ultima_vacuna
 
-    
-    def get_nombre(self):
-        return self.__nombre
+  
+    @property
+    def nombre(self):
+        return self._nombre
 
-    def get_peso(self):
-        return self.__peso
+    @nombre.setter
+    def nombre(self, valor):
+        self._nombre = valor
 
-    def get_propietario(self):
-        return self.__propietario
+  
+    @property
+    def peso(self):
+        return self._peso
 
-    def get_fecha_cumpleaños(self):
-        return self.__fecha_cumpleaños
+    @peso.setter
+    def peso(self, valor):
+        if valor > 0:
+            self._peso = valor
+        else:
+            raise ValueError("El peso debe ser mayor que 0")
 
-    def get_fecha_ultima_vacuna(self):
-        return self.__fecha_ultima_vacuna
 
-    
-    def set_nombre(self, nombre):
-        self.__nombre = nombre
+    @property
+    def propietario(self):
+        return self._propietario
 
-    def set_peso(self, peso):
-        self.__peso = peso
+    @propietario.setter
+    def propietario(self, valor):
+        self._propietario = valor
 
-    def set_propietario(self, propietario):
-        self.__propietario = propietario
+   
+    @property
+    def fecha_cumpleaños(self):
+        return self._fecha_cumpleaños
 
-    def set_fecha_cumpleaños(self, fecha_cumpleaños):
-        self.__fecha_cumpleaños = fecha_cumpleaños
+    @fecha_cumpleaños.setter
+    def fecha_cumpleaños(self, valor):
+        self._fecha_cumpleaños = valor
 
-    def set_fecha_ultima_vacuna(self, fecha_ultima_vacuna):
-        self.__fecha_ultima_vacuna = fecha_ultima_vacuna
+ 
+    @property
+    def fecha_ultima_vacuna(self):
+        return self._fecha_ultima_vacuna
+
+    @fecha_ultima_vacuna.setter
+    def fecha_ultima_vacuna(self, valor):
+        self._fecha_ultima_vacuna = valor
